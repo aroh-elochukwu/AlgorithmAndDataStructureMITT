@@ -1,48 +1,26 @@
-﻿string[] wordsArray = { };
-int wordsNumber;
-char userChar;
-char[] userCharsArray = { };
-
-Console.WriteLine("Please input the number of words for this array");
-wordsNumber = Int32.Parse(Console.ReadLine());
-
-for (int index = 1; index <= wordsNumber; index++)
+﻿bool isPalindrome(string testString)
 {
-    Console.WriteLine($"Please enter word {index}");
-    string word = Console.ReadLine();
-    Array.Resize(ref wordsArray, wordsArray.Length + 1);
-    wordsArray[wordsArray.Length - 1] = word;
+    StringBuilder compareString1 = new StringBuilder();
+    StringBuilder compareString2 = new StringBuilder();
+
+    for (int index = testString.Length - 1; index >= 0; index--)
+    {
+        compareString1.Append(testString[index]);
+    }
+
+    for (int index = 0; index < testString.Length; index++)
+    {
+        compareString2.Append(testString[index]);
+    }
+
+    Console.WriteLine(compareString1);
+    Console.WriteLine(compareString2);
+
+    return String.Equals(compareString1.ToString(), compareString2.ToString());
+
 
 }
 
-Console.WriteLine("Please enter a character to compare");
-userChar = Console.ReadKey().KeyChar;
 
-foreach (string word in wordsArray)
-{
-    int charCount = 0;
 
-    userCharsArray = word.ToCharArray(0, word.Length);
-    for (int index = 0; index < userCharsArray.Length; index++)
-    {
-        if (userCharsArray[index] == userChar)
-        {
-            charCount++;
-        }
-    }
-    Console.WriteLine($"charater count {charCount}, word length {userCharsArray.Length}");
-    double charInWordPercentage;
-    // Still need to decipher why charInWordsPercentage always result to 0 
-    charInWordPercentage = charCount / userCharsArray.Length * 100;
-    Console.WriteLine(charInWordPercentage);
-
-    if (charInWordPercentage >= 25)
-    {
-        Console.WriteLine($"The letter '{userChar}' appeared in {word} {charCount} times. This letter makes up more than 25% of the total number of characters.  ");
-    }
-    else if (charInWordPercentage < 25)
-    {
-        Console.WriteLine($"The letter '{userChar}' appeared in {word} {charCount} times.");
-    }
-
-}
+Console.WriteLine(isPalindrome("abab"));
