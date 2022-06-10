@@ -32,8 +32,8 @@ foreach (string word in wordsArray)
     }
     Console.WriteLine($"charater count {charCount}, word length {userCharsArray.Length}");
     double charInWordPercentage;
-    // Still need to decipher why charInWordsPercentage always result to 0 
-    charInWordPercentage = charCount / userCharsArray.Length * 100;
+  
+    charInWordPercentage = charCount * 100 / userCharsArray.Length ;
     Console.WriteLine(charInWordPercentage);
 
     if (charInWordPercentage >= 25)
