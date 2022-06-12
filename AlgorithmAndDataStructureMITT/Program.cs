@@ -1,4 +1,6 @@
-﻿bool isPalindrome(string testString)
+﻿using System.Text;
+
+bool isPalindrome(string testString)
 {
     StringBuilder compareString1 = new StringBuilder();
     StringBuilder compareString2 = new StringBuilder();
